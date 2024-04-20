@@ -1,0 +1,27 @@
+.dashboard {
+    width: 100%;
+    max-width: 250px;
+    position: fixed;
+    background-color: #000;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 70px 30px;
+}
+
+a {
+    text-decoration: none !important;
+}
+a.active{
+    .text {
+        color: #fff;
+    }
+}
+.text {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22.77px;
+    &:hover {
+        color: #fff;
+    }
+}
