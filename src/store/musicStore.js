@@ -15,7 +15,7 @@ const fetchData = async (set) => {
         console.log(playlists)
         set((state) => ({
             ...state,
-            music: playlists.items,
+            music: playlists.items.slice(0,6),
         }))
     } catch (error) {
         console.log(error);

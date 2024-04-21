@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useMusicStore } from "../../store/musicStore";
-import DataRenderComp from "./DataRenderComp";
+import DataRenderComp from "../DataRenderComp";
 import { Box } from "@mui/material";
 
 const TopMixes = () => {

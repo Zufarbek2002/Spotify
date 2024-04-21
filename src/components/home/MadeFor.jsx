@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import { useMusicStore } from "../../store/musicStore";
-import DataRenderComp from "./DataRenderComp";
+import DataRenderComp from "../DataRenderComp";
 import { Link } from "react-router-dom";
 import { Box } from "@mui/material";
 

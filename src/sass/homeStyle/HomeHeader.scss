@@ -1,0 +1,52 @@
+.home_header {
+    display: flex;
+    flex-direction: column;
+    row-gap: 29px;
+    color: #fff;
+    background: linear-gradient(180deg, #3333A3 10.09%, #333374 33.4%);
+    padding: 20px 0 20px 280px;
+}
+
+.home_title {
+    font-size: 39px;
+    font-weight: 700;
+    line-height: 49.33px;
+    letter-spacing: -0.01em;
+}
+
+.home_img {
+    width: 82px;
+    height: 82px;
+    img {
+        width: 100%;
+    }
+}
+
+.home_box {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.home_card {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 21px;
+    width: 100%;
+    max-width: 480px;
+    background-color: #ffffff2f;
+    border-radius: 6px;
+}
+
+.home_card_name {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25.3px;
+    letter-spacing: 0.01em;
+}

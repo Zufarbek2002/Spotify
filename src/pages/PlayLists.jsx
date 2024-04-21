@@ -1,10 +1,12 @@
 // import { useParams } from "react-router-dom";
-import Playlist from "../components/home/Playlist";
+import Playlist from "../components/playlists/Playlist";
+import PlaylistHeader from "../components/playlists/PlaylistHeader";
 
 const PlayLists = () => {
 
   return (
-    <div className="container">
+    <div >
+      <PlaylistHeader />
       <Playlist />
     </div>
   );

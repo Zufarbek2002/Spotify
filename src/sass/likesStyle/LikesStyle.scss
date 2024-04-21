@@ -1,0 +1,40 @@
+.images_box_header{
+    display: flex;
+    gap: 32px;
+    align-items: flex-end;
+    background: linear-gradient(180deg, #604EC1 , #2e2b43);
+    width: 100%;
+    padding: 20px 0 20px 280px;
+}
+
+.images_text_box {
+    color: #fff;
+}
+
+.images_title {
+    font-size: 122px;
+    font-weight: 900;
+    line-height: 154.33px;
+    letter-spacing: -0.06em;
+}
+
+.images_text {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20.24px;
+    letter-spacing: -0.02em;
+}
+
+@media screen and (max-width: 920px) {
+    .images_title{
+        font-size: 80px;
+        line-height: 80px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .images_box_header{
+        img{
+            width: 100%;
+        }
+    }
+}
