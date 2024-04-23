@@ -7,11 +7,10 @@ import { Box } from "@mui/material";
 
 const TopMixes = () => {
   const { topMixes, fetchTopMixes } = useMusicStore();
-
   useEffect(() => {
     fetchTopMixes();
   }, []);
-  
+
   return (
     <Box mb="50px" mt="50px">
       <div className="card_box_header">
@@ -22,7 +21,7 @@ const TopMixes = () => {
       </div>
       <div className="mixes_box">
         {topMixes &&
-          topMixes.map((data) => (
+          topMixes.slice(0,4).map((data) => (
             <DataRenderComp key={data.id} data={data} />
           ))}
       </div>

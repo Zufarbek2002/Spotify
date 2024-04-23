@@ -21,7 +21,7 @@ const Uniquely = () => {
       </div>
       <div className="mixes_box">
         {uniquely &&
-          uniquely.map((data) => <DataRenderComp key={data.id} data={data} />)}
+          uniquely.slice(0,4).map((data) => <DataRenderComp key={data.id} data={data} />)}
       </div>
     </Box>
   );

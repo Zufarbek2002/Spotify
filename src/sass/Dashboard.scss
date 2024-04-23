@@ -60,3 +60,19 @@ a.active {
         color: #fff;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .dashboard{
+        max-width: 80px;
+        padding: 40px 15px;
+    }
+    .icon_name{
+        display: none;
+    }
+    .dashboar_box{
+        display: none;
+    }
+    .del{
+        display: none;
+    }
+}

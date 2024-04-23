@@ -24,10 +24,11 @@
 }
 
 .home_box {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
     width: 100%;
-    flex-wrap: wrap;
+    padding-right: 20px;
 }
 
 .home_card {
@@ -55,4 +56,16 @@
     line-height: 25.3px;
     letter-spacing: 0.01em;
     color: #fff;
+}
+
+@media screen and (max-width: 910px) {
+    .home_box {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .home_header{
+        padding-left: 100px;
+    }
 }

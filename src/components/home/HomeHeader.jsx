@@ -1,9 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 import { useMusicStore } from "../../store/musicStore";
 import "../../sass/homeStyle/HomeHeader.scss";
-import { Link } from "react-router-dom";
 
 const HomeHeader = () => {
   const { music, fetchData } = useMusicStore();

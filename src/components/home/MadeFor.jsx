@@ -21,7 +21,7 @@ const MadeFor = () => {
       </div>
       <div className="mixes_box">
         {madeForYou &&
-          madeForYou.map((data) => (
+          madeForYou.slice(0,4).map((data) => (
             <DataRenderComp key={data.id} data={data} />
           ))}
       </div>

@@ -21,7 +21,7 @@ const JumpBack = () => {
       </div>
       <div className="mixes_box">
         {jumpBack &&
-          jumpBack.map((data) => <DataRenderComp key={data.id} data={data} />)}
+          jumpBack.slice(0,4).map((data) => <DataRenderComp key={data.id} data={data} />)}
       </div>
     </Box>
   );

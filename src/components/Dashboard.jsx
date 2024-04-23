@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Box, Button, IconButton, Typography } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
@@ -7,9 +8,8 @@ import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import like from "../assets/likes.png";
 import { getToken } from "../token/getToken";
-import "../sass/Dashboard.scss";
 import { useMusicStore } from "../store/musicStore";
-import { useEffect } from "react";
+import "../sass/Dashboard.scss";
 
 const Dashboard = () => {
   const { music, fetchData } = useMusicStore();
@@ -38,7 +38,7 @@ const Dashboard = () => {
           <IconButton color="inherit">
             <HomeIcon fontSize="large" />
           </IconButton>
-          Home
+          <span className="icon_name">Home</span>
         </Typography>
       </NavLink>
 
@@ -55,7 +55,7 @@ const Dashboard = () => {
           <IconButton color="inherit">
             <SearchIcon fontSize="large" />
           </IconButton>
-          Search
+          <span className="icon_name">Search</span>
         </Typography>
       </Link>
 
@@ -72,7 +72,7 @@ const Dashboard = () => {
           <IconButton color="inherit">
             <LibraryMusicIcon fontSize="large" />
           </IconButton>
-          Your Library
+          <span className="icon_name">Your Library</span>
         </Typography>
       </Link>
 
@@ -90,7 +90,7 @@ const Dashboard = () => {
             <IconButton color="inherit">
               <AddBoxIcon fontSize="large" />
             </IconButton>
-            Create Playlist
+            <span className="icon_name">Create Playlist</span>
           </Typography>
         </Link>
 
@@ -107,11 +107,11 @@ const Dashboard = () => {
             <div className="likes_img">
               <img src={like} />
             </div>
-            Liked Songs
+            <span className="icon_name">Liked Songs</span>
           </Typography>
         </NavLink>
       </Box>
-      <Box textAlign="center" mt={5}>
+      <Box textAlign="center" mt={5} className="del">
         <Button onClick={handleToken} variant="contained">
           Get Token
         </Button>

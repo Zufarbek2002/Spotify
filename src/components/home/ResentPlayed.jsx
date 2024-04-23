@@ -22,7 +22,7 @@ const ResentPlayed = () => {
       </div>
       <div className="mixes_box">
         {resentPlayed &&
-          resentPlayed.map((data) => (
+          resentPlayed.slice(0,4).map((data) => (
             <DataRenderComp key={data.id} data={data} />
           ))}
       </div>

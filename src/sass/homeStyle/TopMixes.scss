@@ -5,11 +5,9 @@
 }
 
 .mixes_box {
-    display: flex;
-    gap: 31px;
-    flex-wrap: wrap;
-    height: 350px;
-    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
 .card {
@@ -88,5 +86,84 @@
 
     &:active {
         color: #fff;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .mixes_box{
+        grid-template-columns: repeat(3, 1fr);
+        height: 330px;
+        overflow: hidden;
+    }
+    .card{
+        height: 330px;
+    }
+}
+@media screen and (max-width: 940px) {
+    .mixes_box{
+        height: 300px;
+    }
+    .card{
+        height: 300px;
+    }
+}
+@media screen and (max-width: 850px) {
+    .mixes_box{
+        grid-template-columns: repeat(2, 1fr);
+        height: 330px;
+    }
+    .card{
+        height: 330px;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .mixes_box{
+        height: 300px;
+    }
+    .card{
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .mixes_box{
+        grid-template-columns:  1fr;
+        height: 330px;
+    }
+    .card{
+        height: 330px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .card_title{
+        font-size: 24px;
+    }
+    .card_link{
+        font-size: 12px;
+    }
+    .container{
+        margin-left: 70px;
+    }
+    .mixes_box{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 480px) {
+    .mixes_box{
+        height: 260px;
+    }
+    .card{
+        height: 260px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .mixes_box{
+        grid-template-columns:  1fr;
+        height: 330px;
+    }
+    .card{
+        height: 330px;
     }
 }
