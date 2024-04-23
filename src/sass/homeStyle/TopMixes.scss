@@ -72,7 +72,7 @@
     justify-content: space-between;
     align-items: flex-end;
     width: 100%;
-    max-width: 989px;
+    max-width: 1150px;
     padding-bottom: 26px;
 }
 
@@ -89,81 +89,124 @@
     }
 }
 
+.more_playlist_box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 1090px) {
+    .more_playlist_box {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media screen and (max-width: 1080px) {
-    .mixes_box{
+    .mixes_box {
         grid-template-columns: repeat(3, 1fr);
         height: 330px;
         overflow: hidden;
     }
-    .card{
+
+    .card {
         height: 330px;
     }
 }
+
 @media screen and (max-width: 940px) {
-    .mixes_box{
+    .mixes_box {
         height: 300px;
     }
-    .card{
+
+    .card {
         height: 300px;
     }
 }
+
 @media screen and (max-width: 850px) {
-    .mixes_box{
+    .more_playlist_box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mixes_box {
         grid-template-columns: repeat(2, 1fr);
         height: 330px;
     }
-    .card{
+
+    .card {
         height: 330px;
     }
 }
 
 @media screen and (max-width: 740px) {
-    .mixes_box{
+    .mixes_box {
         height: 300px;
     }
-    .card{
+
+    .card {
         height: 300px;
     }
 }
 
 @media screen and (max-width: 670px) {
-    .mixes_box{
-        grid-template-columns:  1fr;
+    .more_playlist_box {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .mixes_box {
+        grid-template-columns: 1fr;
         height: 330px;
     }
-    .card{
+
+    .card {
         height: 330px;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .card_title{
+    .card_title {
         font-size: 24px;
     }
-    .card_link{
+
+    .card_link {
         font-size: 12px;
     }
-    .container{
+
+    .container {
         margin-left: 70px;
     }
-    .mixes_box{
+
+    .mixes_box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .more_playlist_box {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
 @media screen and (max-width: 480px) {
-    .mixes_box{
+    .mixes_box {
         height: 260px;
     }
-    .card{
+
+    .card {
         height: 260px;
     }
 }
+
 @media screen and (max-width: 480px) {
-    .mixes_box{
-        grid-template-columns:  1fr;
+    .more_playlist_box {
+        grid-template-columns: 1fr;
+    }
+
+    .mixes_box {
+        grid-template-columns: 1fr;
         height: 330px;
     }
-    .card{
+
+    .card {
         height: 330px;
     }
 }

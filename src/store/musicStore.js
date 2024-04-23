@@ -12,13 +12,12 @@ const fetchData = async (set) => {
             }
         );
         const { playlists } = await res.json();
-        console.log(playlists)
         set((state) => ({
             ...state,
             music: playlists.items,
         }))
     } catch (error) {
-        console.log(error);
+        window.location.href = "/login"
     }
 }
 
@@ -33,7 +32,6 @@ const fetchTopMixes = async (set) => {
             }
         );
         const { playlists } = await res.json();
-        console.log(playlists)
         set((state) => ({
             ...state,
             topMixes: playlists.items,
@@ -53,7 +51,6 @@ const fetchMadeFor = async (set) => {
         }
     );
     const { playlists } = await res.json();
-    console.log(playlists)
     set((state) => ({
         ...state,
         madeForYou: playlists.items,
@@ -118,8 +115,7 @@ const fetchMusicPlayer = async (set) => {
                 },
             }
         );
-        const  {playlists}  = await res.json();
-        console.log(playlists)
+        const { playlists } = await res.json();
         set((state) => ({
             ...state,
             musicPlayer: playlists,

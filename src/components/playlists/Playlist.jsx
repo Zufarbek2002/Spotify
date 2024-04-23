@@ -79,7 +79,7 @@ const Playlist = () => {
                       )}
                     </IconButton>
                   </TableCell>
-                  <TableCell >
+                  <TableCell>
                     <audio controls src={data.track.preview_url} />
                   </TableCell>
                 </TableRow>

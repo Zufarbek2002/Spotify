@@ -12,7 +12,6 @@ const fetchData = async (set, playlistId) => {
             }
         );
         const playlists = await res.json();
-        console.log(playlists)
         set((state) => ({
             ...state,
             music: playlists.items,
@@ -24,7 +23,6 @@ const fetchData = async (set, playlistId) => {
 
 const fetchUrlData = async (set) => {
     const url = String(localStorage.getItem("album-data"))
-    console.log(url)
     try {
         const res = await fetch(
             url,
@@ -35,7 +33,6 @@ const fetchUrlData = async (set) => {
             }
         );
         const playlists = await res.json();
-        console.log(playlists)
         set((state) => ({
             ...state,
             urlMusic: [playlists],

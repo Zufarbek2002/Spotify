@@ -1,13 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Box, Button, IconButton, Typography } from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
 import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import like from "../assets/likes.png";
-import { getToken } from "../token/getToken";
 import { useMusicStore } from "../store/musicStore";
 import "../sass/Dashboard.scss";
 
@@ -18,10 +17,6 @@ const Dashboard = () => {
   }, []);
   const handleUrl = (url) => {
     localStorage.setItem("album-data", url);
-  };
-  const handleToken = async () => {
-    await getToken();
-    window.location.href = "/";
   };
   return (
     <div className="dashboard">
@@ -110,11 +105,6 @@ const Dashboard = () => {
             <span className="icon_name">Liked Songs</span>
           </Typography>
         </NavLink>
-      </Box>
-      <Box textAlign="center" mt={5} className="del">
-        <Button onClick={handleToken} variant="contained">
-          Get Token
-        </Button>
       </Box>
       <div className="dashboar_box">
         {music &&

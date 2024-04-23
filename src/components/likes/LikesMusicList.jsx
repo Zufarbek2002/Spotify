@@ -8,14 +8,21 @@ import {
   TableContainer,
   TableRow,
 } from "@mui/material";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useLikesStore } from "../../store/likesStore";
 import TableHeadComp from "../TableHeadComp";
 
 const LikesMusicList = () => {
   const { likedMusic, fetchLikedData } = useLikesStore();
+  const likeData = JSON.parse(localStorage.getItem("likedMusics"));
+  let newLikeData = [];
+
   const handleAdd = (musicId) => {
-    console.log(musicId);
+    likeData.map((data) =>
+      data.id !== musicId ? newLikeData.push(data) : newLikeData
+    );
+    localStorage.setItem("likedMusics", JSON.stringify(newLikeData));
+    fetchLikedData();
   };
 
   useEffect(() => {
@@ -57,7 +64,7 @@ const LikesMusicList = () => {
                   </TableCell>
                   <TableCell>
                     <IconButton onClick={() => handleAdd(data.id)}>
-                      <AddCircleOutlineIcon sx={{ color: "#fff" }} />
+                      <FavoriteIcon sx={{ color: "#63CF6C" }} />
                     </IconButton>
                   </TableCell>
                   <TableCell>
