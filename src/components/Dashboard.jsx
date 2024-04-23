@@ -1,10 +1,11 @@
-import { NavLink } from "react-router-dom";
-import { Box, IconButton, Typography } from "@mui/material";
+import { Link, NavLink } from "react-router-dom";
+import { Box, Button, IconButton, Typography } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
 import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import like from "../assets/likes.png";
+import { getToken } from "../token/getToken";
 import "../sass/Dashboard.scss";
 
 const Dashboard = () => {
@@ -27,7 +28,7 @@ const Dashboard = () => {
         </Typography>
       </NavLink>
 
-      <NavLink to="/search">
+      <Link>
         <Typography
           className="text"
           sx={{
@@ -42,9 +43,9 @@ const Dashboard = () => {
           </IconButton>
           Search
         </Typography>
-      </NavLink>
+      </Link>
 
-      <NavLink to="/library">
+      <Link>
         <Typography
           className="text"
           sx={{
@@ -59,10 +60,10 @@ const Dashboard = () => {
           </IconButton>
           Your Library
         </Typography>
-      </NavLink>
+      </Link>
 
       <Box sx={{ mt: 3 }}>
-        <NavLink to="/playlist">
+        <Link>
           <Typography
             className="text"
             sx={{
@@ -77,7 +78,7 @@ const Dashboard = () => {
             </IconButton>
             Create Playlist
           </Typography>
-        </NavLink>
+        </Link>
 
         <NavLink to="/like">
           <Typography
@@ -95,6 +96,11 @@ const Dashboard = () => {
             Liked Songs
           </Typography>
         </NavLink>
+      </Box>
+      <Box textAlign="center" mt={5}>
+        <Button onClick={getToken} variant="contained">
+          Get Token
+        </Button>
       </Box>
     </div>
   );

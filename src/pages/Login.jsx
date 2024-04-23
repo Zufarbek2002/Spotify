@@ -1,9 +1,9 @@
+import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
@@ -11,19 +11,19 @@ import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { getToken } from "../token/getToken";
-import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const navigate = useNavigate()
-  const handleSubmit = (event) => {
-    navigate("/")
-    getToken()
-    event.preventDefault();
-    // const data = new FormData(event.currentTarget);
-    // console.log({
-    //   email: data.get("email"),
-    //   password: data.get("password"),
-    // });
+  const form = useForm();
+  const { register, handleSubmit, formState } = form;
+  const { errors } = formState;
+  const navigate = useNavigate();
+
+  const onSubmit = (data) => {
+    if (data.username.length > 2 && data.password.length > 2) {
+      getToken();
+      navigate("/");
+      localStorage.setItem("user", JSON.stringify(data));
+    } else return alert("Username or password length to short! (more 2)");
   };
 
   return (
@@ -35,7 +35,8 @@ const Login = () => {
         sm={4}
         md={6}
         sx={{
-          backgroundImage: "url(https://developer.spotify.com/images/guidelines/design/icon3@2x.png)",
+          backgroundImage:
+            "url(https://developer.spotify.com/images/guidelines/design/icon3@2x.png)",
           backgroundRepeat: "no-repeat",
           backgroundColor: (t) =>
             t.palette.mode === "light"
@@ -64,7 +65,7 @@ const Login = () => {
           <Box
             component="form"
             noValidate
-            onSubmit={handleSubmit}
+            onSubmit={handleSubmit(onSubmit)}
             sx={{ mt: 1 }}
           >
             <TextField
@@ -76,7 +77,16 @@ const Login = () => {
               name="username"
               autoComplete="username"
               autoFocus
+              {...register("username", {
+                required: {
+                  value: true,
+                  message: "Username is required",
+                },
+              })}
             />
+            <span style={{ color: "red" }}>
+              {errors.username && errors.username.message}
+            </span>
             <TextField
               margin="normal"
               required
@@ -86,16 +96,23 @@ const Login = () => {
               type="password"
               id="password"
               autoComplete="current-password"
+              {...register("password", {
+                required: {
+                  value: true,
+                  message: "Password is required",
+                },
+              })}
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+            <span style={{ color: "red" }}>
+              {errors.password && errors.password.message}
+            </span>
+
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onSubmit={getToken}
             >
               Sign In
             </Button>
