@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { useMusicStore } from "../../store/musicStore";
 import "../../sass/homeStyle/HomeHeader.scss";
+import { Link } from "react-router-dom";
 
 const HomeHeader = () => {
   const { music, fetchData } = useMusicStore();
@@ -10,21 +11,30 @@ const HomeHeader = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
+  const handleUrl = (url) => {
+    localStorage.setItem("album-data", url);
+  };
   return (
     <div className="home_header">
       <h2 className="home_title">Good afternoon</h2>
       <div className="home_box">
         {music ? (
-          music.map((data) => (
-            <div key={data.id} className="home_card">
+          music.slice(0, 6).map((data) => (
+            <Link
+              key={data.id}
+              to={`/playlist/${data.id}`}
+              onClick={() => handleUrl(data.href)}
+              className="home_card"
+            >
               <div className="home_img">
                 <img src={data.images[0].url} alt={data.name} />
               </div>
               <h3 className="home_card_name">{data.name}</h3>
-            </div>
+            </Link>
           ))
-        ): <Navigate to="/login"/>}
+        ) : (
+          <Navigate to="/login" />
+        )}
       </div>
     </div>
   );

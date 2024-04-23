@@ -15,7 +15,7 @@ const fetchData = async (set) => {
         console.log(playlists)
         set((state) => ({
             ...state,
-            music: playlists.items.slice(0,6),
+            music: playlists.items,
         }))
     } catch (error) {
         console.log(error);
@@ -44,52 +44,52 @@ const fetchTopMixes = async (set) => {
 }
 
 const fetchMadeFor = async (set) => {
-        const res = await fetch(
-            "https://api.spotify.com/v1/browse/categories/0JQ5DAqbMKFHOzuVTgTizF/playlists",
-            {
-                headers: {
-                    Authorization: ACCESS_TOKEN,
-                },
-            }
-        );
-        const { playlists } = await res.json();
-        console.log(playlists)
-        set((state) => ({
-            ...state,
-            madeForYou: playlists.items,
-        }))
+    const res = await fetch(
+        "https://api.spotify.com/v1/browse/categories/0JQ5DAqbMKFHOzuVTgTizF/playlists",
+        {
+            headers: {
+                Authorization: ACCESS_TOKEN,
+            },
+        }
+    );
+    const { playlists } = await res.json();
+    console.log(playlists)
+    set((state) => ({
+        ...state,
+        madeForYou: playlists.items,
+    }))
 }
 
 const fetchResentPlayed = async (set) => {
-        const res = await fetch(
-            "https://api.spotify.com/v1/browse/categories/0JQ5DAqbMKFQ00XGBls6ym/playlists",
-            {
-                headers: {
-                    Authorization: ACCESS_TOKEN,
-                },
-            }
-        );
-        const { playlists } = await res.json();
-        set((state) => ({
-            ...state,
-            resentPlayed: playlists.items,
-        }))
+    const res = await fetch(
+        "https://api.spotify.com/v1/browse/categories/0JQ5DAqbMKFQ00XGBls6ym/playlists",
+        {
+            headers: {
+                Authorization: ACCESS_TOKEN,
+            },
+        }
+    );
+    const { playlists } = await res.json();
+    set((state) => ({
+        ...state,
+        resentPlayed: playlists.items,
+    }))
 }
 
 const fetchJumpBack = async (set) => {
-        const res = await fetch(
-            "https://api.spotify.com/v1/browse/categories/0JQ5DAqbMKFLVaM30PMBm4/playlists",
-            {
-                headers: {
-                    Authorization: ACCESS_TOKEN,
-                },
-            }
-        );
-        const { playlists } = await res.json();
-        set((state) => ({
-            ...state,
-            jumpBack: playlists.items,
-        }))
+    const res = await fetch(
+        "https://api.spotify.com/v1/browse/categories/0JQ5DAqbMKFLVaM30PMBm4/playlists",
+        {
+            headers: {
+                Authorization: ACCESS_TOKEN,
+            },
+        }
+    );
+    const { playlists } = await res.json();
+    set((state) => ({
+        ...state,
+        jumpBack: playlists.items,
+    }))
 }
 
 const fetchUniquely = async (set) => {
@@ -108,6 +108,27 @@ const fetchUniquely = async (set) => {
     }))
 }
 
+const fetchMusicPlayer = async (set) => {
+    try {
+        const res = await fetch(
+            "https://api.spotify.com/v1/me/player",
+            {
+                headers: {
+                    Authorization: ACCESS_TOKEN,
+                },
+            }
+        );
+        const  {playlists}  = await res.json();
+        console.log(playlists)
+        set((state) => ({
+            ...state,
+            musicPlayer: playlists,
+        }))
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 const musicStore = (set) => ({
     music: [],
     topMixes: [],
@@ -115,6 +136,7 @@ const musicStore = (set) => ({
     resentPlayed: [],
     jumpBack: [],
     uniquely: [],
+    musicPlayer: [],
 
     fetchData: () => fetchData(set),
     fetchTopMixes: () => fetchTopMixes(set),
@@ -122,6 +144,7 @@ const musicStore = (set) => ({
     fetchResentPlayed: () => fetchResentPlayed(set),
     fetchJumpBack: () => fetchJumpBack(set),
     fetchUniquely: () => fetchUniquely(set),
+    fetchMusicPlayer: () => fetchMusicPlayer(set),
 })
 
 export const useMusicStore = create(musicStore)

@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -16,12 +15,11 @@ const Login = () => {
   const form = useForm();
   const { register, handleSubmit, formState } = form;
   const { errors } = formState;
-  const navigate = useNavigate();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     if (data.username.length > 2 && data.password.length > 2) {
-      getToken();
-      navigate("/");
+      await getToken();
+      window.location.href = "/";
       localStorage.setItem("user", JSON.stringify(data));
     } else return alert("Username or password length to short! (more 2)");
   };

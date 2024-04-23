@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Link, NavLink } from "react-router-dom";
 import { Box, Button, IconButton, Typography } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
@@ -7,8 +8,21 @@ import AddBoxIcon from "@mui/icons-material/AddBox";
 import like from "../assets/likes.png";
 import { getToken } from "../token/getToken";
 import "../sass/Dashboard.scss";
+import { useMusicStore } from "../store/musicStore";
+import { useEffect } from "react";
 
 const Dashboard = () => {
+  const { music, fetchData } = useMusicStore();
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const handleUrl = (url) => {
+    localStorage.setItem("album-data", url);
+  };
+  const handleToken = async () => {
+    await getToken();
+    window.location.href = "/";
+  };
   return (
     <div className="dashboard">
       <NavLink to="/">
@@ -98,10 +112,22 @@ const Dashboard = () => {
         </NavLink>
       </Box>
       <Box textAlign="center" mt={5}>
-        <Button onClick={getToken} variant="contained">
+        <Button onClick={handleToken} variant="contained">
           Get Token
         </Button>
       </Box>
+      <div className="dashboar_box">
+        {music &&
+          music.splice(0, 8).map((data) => (
+            <NavLink
+              key={data.id}
+              to={`/playlist/${data.id}`}
+              onClick={() => handleUrl(data.href)}
+            >
+              <h3 className="dashboar_card_name">{data.name}</h3>
+            </NavLink>
+          ))}
+      </div>
     </div>
   );
 };
