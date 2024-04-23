@@ -11,8 +11,9 @@ const TopMixes = () => {
   useEffect(() => {
     fetchTopMixes();
   }, []);
+  
   return (
-    <Box mb="50px">
+    <Box mb="50px" mt="50px">
       <div className="card_box_header">
         <h1 className="card_title">Your top mixes</h1>
         <div>

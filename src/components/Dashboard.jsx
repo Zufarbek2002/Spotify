@@ -4,9 +4,8 @@ import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
 import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 import AddBoxIcon from "@mui/icons-material/AddBox";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import like from "../assets/likes.png";
 import "../sass/Dashboard.scss";
-import { getToken } from "../token/getToken";
 
 const Dashboard = () => {
   return (
@@ -62,7 +61,7 @@ const Dashboard = () => {
         </Typography>
       </NavLink>
 
-      <Box sx={{mt: 3}}>
+      <Box sx={{ mt: 3 }}>
         <NavLink to="/playlist">
           <Typography
             className="text"
@@ -90,14 +89,13 @@ const Dashboard = () => {
               gap: "20px",
             }}
           >
-            <IconButton color="inherit">
-              <FavoriteIcon color="error" fontSize="large" />
-            </IconButton>
+            <div className="likes_img">
+              <img src={like} />
+            </div>
             Liked Songs
           </Typography>
         </NavLink>
       </Box>
-      <button onClick={getToken}>token</button>
     </div>
   );
 };

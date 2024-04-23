@@ -8,8 +8,7 @@ const HomeHeader = () => {
   useState(() => {
     fetchData();
   }, []);
-  console.log(music);
-  console.log(localStorage.getItem("album-data"))
+
   return (
     <div className="home_header">
       <h2 className="home_title">Good afternoon</h2>

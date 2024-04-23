@@ -1,3 +1,4 @@
+import Dashboard from "../components/Dashboard";
 import HomeHeader from "../components/home/HomeHeader";
 import JumpBack from "../components/home/JumpBack";
 import MadeFor from "../components/home/MadeFor";
@@ -8,6 +9,7 @@ import Uniquely from "../components/home/Uniquely";
 const Home = () => {
   return (
     <>
+      <Dashboard />
       <HomeHeader />
       <div className="container">
         <TopMixes />

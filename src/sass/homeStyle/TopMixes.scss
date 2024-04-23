@@ -1,8 +1,9 @@
-.container{
+.container {
     margin-left: 250px;
     padding-left: 30px;
     padding-right: 30px;
 }
+
 .mixes_box {
     display: flex;
     gap: 31px;
@@ -21,9 +22,12 @@
     flex-direction: column;
     row-gap: 8px;
     overflow: hidden;
+    background-color: #282828;
+    transition: all .4s ease;
 
     &:hover {
-        background-color: #1b1b1b;
+        background-color: #353535;
+        transition: all .4s ease;
     }
 
     img {
