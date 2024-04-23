@@ -17,7 +17,7 @@ const fetchData = async (set) => {
             music: playlists.items,
         }))
     } catch (error) {
-        window.location.href = "/login"
+        localStorage.removeItem("token")
     }
 }
 
